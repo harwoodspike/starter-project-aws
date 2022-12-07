@@ -8,7 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "aws-amplify": "^5.0.4",
+    "pinia": "^2.0.27",
+    "vue": "^3.2.25",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.4",
