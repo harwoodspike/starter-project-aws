@@ -4,7 +4,7 @@ import { useUserStore } from './stores/user';
 import { storeToRefs } from "pinia";
 import Login from "./components/Login.vue";
 import { Auth } from '@aws-amplify/auth';
-import { Hub } from '@aws-amplify/core';
+// import { Hub } from '@aws-amplify/core';
 
 const  { user } = storeToRefs(useUserStore())
 const  { setUser, signOut } = useUserStore()
@@ -14,15 +14,15 @@ Auth
     .then(user => setUser(user))
     .catch(err => console.log(err));
 
-Hub.listen('auth', ({ payload }) => {
-  const { event } = payload;
-  if (event === 'autoSignIn') {
-    setUser(payload.data)
-
-  } else if (event === 'autoSignIn_failure') {
-    // redirect to sign in page
-  }
-})
+// Hub.listen('auth', ({ payload }) => {
+//   const { event } = payload;
+//   if (event === 'autoSignIn') {
+//     setUser(payload.data)
+//
+//   } else if (event === 'autoSignIn_failure') {
+//     // redirect to sign in page
+//   }
+// })
 </script>
 
 <template>
