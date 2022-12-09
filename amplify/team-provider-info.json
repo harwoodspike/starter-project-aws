@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "starterprojectaws42d3fbd6": {}
+        "starterprojectaws42d3fbd6": {},
+        "userPoolGroups": {}
       }
     }
   }

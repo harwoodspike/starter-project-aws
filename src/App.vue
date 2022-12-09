@@ -6,7 +6,7 @@ import Login from "./components/Login.vue";
 import { Auth } from '@aws-amplify/auth';
 
 const  { user } = storeToRefs(useUserStore())
-const  { setUser } = useUserStore()
+const  { setUser, signOut } = useUserStore()
 
 Auth
     .currentAuthenticatedUser({ bypassCache: false })
@@ -31,6 +31,7 @@ Hub.listen('auth', ({ payload }) => {
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   <div v-if="user">
     Logged In<br />
+    <button @click="signOut">Sign Off</button>
   </div>
   <div v-else>
     Not Logged In<br />
