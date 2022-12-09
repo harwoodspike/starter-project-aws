@@ -4,6 +4,7 @@ import { useUserStore } from './stores/user';
 import { storeToRefs } from "pinia";
 import Login from "./components/Login.vue";
 import { Auth } from '@aws-amplify/auth';
+import { Hub } from '@aws-amplify/core';
 
 const  { user } = storeToRefs(useUserStore())
 const  { setUser, signOut } = useUserStore()
@@ -12,8 +13,6 @@ Auth
     .currentAuthenticatedUser({ bypassCache: false })
     .then(user => setUser(user))
     .catch(err => console.log(err));
-
-import { Hub } from 'aws-amplify';
 
 Hub.listen('auth', ({ payload }) => {
   const { event } = payload;
@@ -40,12 +39,12 @@ Hub.listen('auth', ({ payload }) => {
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/*#app {*/
+/*  font-family: Avenir, Helvetica, Arial, sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  text-align: center;*/
+/*  color: #2c3e50;*/
+/*  margin-top: 60px;*/
+/*}*/
 </style>

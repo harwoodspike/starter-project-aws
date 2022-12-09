@@ -13,7 +13,6 @@ export const useUserStore = defineStore('user', () => {
         try {
             const user = await Auth.signIn(username, password)
             if (user.challengeName === 'NEW_PASSWORD_REQUIRED') {
-                const { requiredAttributes } = user.challengeParam; // the array of required attributes, e.g ['email', 'phone_number']
                 Auth.completeNewPassword(
                     user,               // the Cognito User Object
                     'testingtesting',       // the new password
